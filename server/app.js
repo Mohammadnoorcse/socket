@@ -43,6 +43,10 @@ io.on("connection",(socket)=>{
     socket.to(room).emit("receive-message",message); 
    });
 
+   socket.on("join-room",(room) =>{
+      socket.join(room);
+   });
+
    socket.on("disconnect",()=>{
     console.log("User Disconnected.",socket.id)
    })
@@ -55,3 +59,4 @@ server.listen(port,()=>{
 // on->receive data
 // broadcast->nije send kora data nijer kache show korbe na
 // to(Id)->one to one send message . apni jake sms tar id to  er bitore send korte hobe
+//join->to join people
